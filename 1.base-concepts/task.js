@@ -21,12 +21,19 @@ function solveEquation(a, b, c) {
   return arr; // array
 }
 
-solveEquation(154, 2455, 1);
-console.log(solveEquation(154, 2455, 1));
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
-
+  //let start = "12/11/2023"
+  // не понял как использовать функцию Date, как рассчитать время, на которое берется кредит, поставил просто 12. Подскажите, пожалуйста, как правильно сделать...
+  let time = 12;
+  let amountBody = amount - contribution;
+  console.log(amountBody);
+  let P = percent / 12 / 100;
+  let pamentMonth = amountBody * (P + (P / (((1 + P) ** time) - 1)));
+  console.log(pamentMonth);
+  totalAmount = (pamentMonth * time).toFixed(2);
+  console.log(totalAmount);
   // код для задачи №2 писать здесь
 
   return totalAmount;
