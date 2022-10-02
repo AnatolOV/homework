@@ -32,7 +32,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let P = percent / 12 / 100;
   let pamentMonth = amountBody * (P + (P / (((1 + P) ** time) - 1)));
   console.log(pamentMonth);
-  totalAmount = (pamentMonth * time).toFixed(2);
+  totalAmount = Math.ceil((pamentMonth * time) * 100) / 100;
   console.log(totalAmount);
   // код для задачи №2 писать здесь
 
