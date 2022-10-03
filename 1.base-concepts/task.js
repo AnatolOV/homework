@@ -33,55 +33,41 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     Date(date).getMonth();
   console.log(intervalMonth);
 
-  if (percent === String(percent)) {
-    percent = Number(percent);
-    console.log("percent - Строка преобразована в число");
-  } else if (percent === Number(percent)) {
-    percent = percent;
-  } else {
+
+  if (isNaN(percent)) {
     console.log(`Параметр <percent> содержит неправильное значение ${percent}`);
-  }
-  if (contribution === String(contribution)) {
-    contribution = Number(contribution);
-    console.log("contribution - Строка преобразована в число");
-  } else if (contribution === Number(contribution)) {
-    contribution = contribution;
   } else {
+    percent = percent;
+  }
+
+  if (isNaN(contribution)) {
     console.log(`Параметр <contribution> содержит неправильное значение ${contribution}`);
-  }
-  if (amount === String(amount)) {
-    amount = Number(amount);
-    console.log("amount - Строка преобразована в число");
-  } else if (amount === Number(amount)) {
-    amount = amount;
   } else {
+    contribution = contribution;
+  }
+  if (isNaN(amount)) {
     console.log(`Параметр <amount> содержит неправильное значение ${amount}`);
-  }
-  if (date === String(date)) {
-    date = Number(date);
-    //console.log(date);
-    console.log("date - Строка преобразована в число");
-  } else if (date === Number(date)) {
-    date = date;
   } else {
+    amount = amount;
+  }
+  if (isNaN(date)) {
     console.log(`Параметр <date> содержит неправильное значение ${date}`);
+  } else {
+    date = date;
   }
 
   let time = intervalMonth;
   let amountBody = amount - contribution;
   console.log(amountBody + " тело кредита");
   let P = percent / 12 / 100;
-  let pamentMonth = amountBody * (P + (P / (((1 + P) ** time) - 1)));
-  console.log(Math.ceil((pamentMonth) * 100) / 100);
-  totalAmount = Math.ceil((pamentMonth * time) * 100) / 100;
+  let pamentMonth = (amountBody * (P + (P / (((1 + P) ** time) - 1)))).toFixed(2);
+  pamentMonth = Number(pamentMonth);
+  console.log(pamentMonth);
+  totalAmount = (pamentMonth * time);
   console.log(totalAmount);
 
 
   return totalAmount;
 }
-calculateTotalMortgage(16, 300000, 3000000, "2044, 04");
 
-//percent - % годовых;
-//contribution - первоначальный взнос по кредиту;
-//amount - сумма кредита;
-//date - срок кредита;
+calculateTotalMortgage(16, 300000, 3000000, "2044-8");
