@@ -72,3 +72,4 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 }
 
 calculateTotalMortgage(16, 300000, 3000000, "2044-8");
+
