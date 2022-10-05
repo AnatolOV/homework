@@ -35,36 +35,37 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
 
   if (isNaN(percent)) {
-    console.log(`Параметр <percent> содержит неправильное значение ${percent}`);
+    percent = `Параметр <percent> содержит неправильное значение ${percent}`;
   } else {
     percent = percent;
   }
 
   if (isNaN(contribution)) {
-    console.log(`Параметр <contribution> содержит неправильное значение ${contribution}`);
+    contribution = `Параметр <contribution> содержит неправильное значение ${contribution}`;
   } else {
     contribution = contribution;
   }
   if (isNaN(amount)) {
-    console.log(`Параметр <amount> содержит неправильное значение ${amount}`);
+    amount = `Параметр <amount> содержит неправильное значение ${amount}`;
   } else {
     amount = amount;
   }
   if (isNaN(date)) {
-    console.log(`Параметр <date> содержит неправильное значение ${date}`);
+    date = `Параметр <date> содержит неправильное значение ${date}`;
   } else {
     date = date;
   }
 
   let time = intervalMonth;
   let amountBody = amount - contribution;
-  console.log(amountBody + " тело кредита");
+ 
   let P = percent / 12 / 100;
-  let pamentMonth = (amountBody * (P + (P / (((1 + P) ** time) - 1)))).toFixed(2);
+  let pamentMonth = amountBody * (P + (P / (((1 + P) ** time) - 1)));
   pamentMonth = Number(pamentMonth);
-  console.log(pamentMonth);
-  totalAmount = (pamentMonth * time);
-  console.log(totalAmount);
+  
+  totalAmount = (pamentMonth * time).toFixed(2);
+  totalAmount = Number(totalAmount);
+ 
 
 
   return totalAmount;
