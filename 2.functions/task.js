@@ -1,5 +1,8 @@
 // Задание 1
 function getArrayParams(arr) {
+  let ddfd = 1;
+  
+
   let min, max, sum, avg;
 
   // Ваш код
