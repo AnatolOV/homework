@@ -36,22 +36,26 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
   if (isNaN(percent)) {
     percent = `Параметр <percent> содержит неправильное значение ${percent}`;
+    return percent;
   } else {
     percent = percent;
   }
 
   if (isNaN(contribution)) {
     contribution = `Параметр <contribution> содержит неправильное значение ${contribution}`;
+    return contribution;
   } else {
     contribution = contribution;
   }
   if (isNaN(amount)) {
     amount = `Параметр <amount> содержит неправильное значение ${amount}`;
+    return amount;
   } else {
     amount = amount;
   }
   if (isNaN(date)) {
     date = `Параметр <date> содержит неправильное значение ${date}`;
+    return date;
   } else {
     date = date;
   }
